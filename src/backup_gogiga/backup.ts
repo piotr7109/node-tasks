@@ -7,7 +7,7 @@ export const backupGogiga = async () => {
 
   const backupName = `backup_${new Date().getTime()}`;
 
-  const dir = __dirname + "/../../backups_gogiga/" + backupName;
+  const dir = process.env.GOGIGA_BACKUP_DIR + backupName;
 
   mkdirSync(dir);
   for (const model of MODELS) {
