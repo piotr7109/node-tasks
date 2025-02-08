@@ -12,10 +12,12 @@
   "description": "",
   "devDependencies": {
     "@swc/core": "^1.10.14",
+    "@types/archiver": "^6.0.3",
     "@types/node": "^22.13.1",
     "@types/node-cron": "^3.0.11"
   },
   "dependencies": {
+    "archiver": "^7.0.1",
     "dotenv": "^16.4.7",
     "mongoose": "^8.10.0",
     "node-cron": "^3.0.3",
