@@ -7,6 +7,7 @@ configDotenv();
 const cronEveryday2AM = "0 2 * * *";
 
 (async () => {
+  backupGogiga();
   nodeCron.schedule(cronEveryday2AM, () => {
     backupGogiga();
   });
