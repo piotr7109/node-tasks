@@ -1,12 +1,17 @@
 import archiver from "archiver";
 import { createWriteStream, mkdirSync, rmSync, writeFileSync } from "fs";
 import mongoose from "mongoose";
+import { sendMail } from "../mailConfig";
 import { MODELS } from "./models";
 
 const zipFiles = async (backupDir: string) => {
   const output = createWriteStream(backupDir + ".zip");
   output.on("close", function () {
     rmSync(backupDir, { recursive: true, force: true });
+    sendMail({
+      html: `Backup ${backupDir}.zip done!`,
+      subject: "Backup notification",
+    });
   });
 
   const archive = archiver("zip", {
